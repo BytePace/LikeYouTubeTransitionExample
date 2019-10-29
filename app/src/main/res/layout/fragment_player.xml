@@ -1,53 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.motion.widget.MotionLayout
+<com.bytepace.ipr.youtube.SingleViewTouchableMotionLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/videoMotionLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/transparent"
-    app:layoutDescription="@xml/player_scene">
+    app:layoutDescription="@xml/player_scene"
+    app:layout_collapseMode="parallax">
 
-    <View
-        android:id="@+id/viewBackground"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="@id/recyclerView"
-        app:layout_constraintEnd_toEndOf="@id/button"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@id/videoViewContainer"
-        app:layout_constraintTop_toTopOf="@id/videoViewContainer"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <ImageView
+    <androidx.cardview.widget.CardView
         android:id="@+id/videoViewContainer"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/scrubs"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/button"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:src="@android:drawable/ic_menu_search"
-        android:tint="@android:color/darker_gray"
-        app:layout_constraintBottom_toBottomOf="@+id/videoViewContainer"
-        app:layout_constraintStart_toEndOf="@+id/videoViewContainer"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+    <com.bytepace.ipr.youtube.CustomVideoView
+        android:id="@+id/videoView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:nestedScrollingEnabled="false"
+        android:layout_marginEnd="0dp"
+        android:scaleType="centerCrop"
+        android:elevation="10dp"
+        android:paddingEnd="@dimen/video_view_right_padding"
+        android:src="@drawable/scrubs"
+        app:layout_constraintBottom_toBottomOf="@+id/videoViewContainer"
+        app:layout_constraintEnd_toEndOf="@+id/videoViewContainer"
+        app:layout_constraintStart_toStartOf="@+id/videoViewContainer"
+        app:layout_constraintTop_toTopOf="@+id/videoViewContainer" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="0dp"
+        android:clickable="true"
+        android:elevation="10dp"
+        android:focusable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/videoViewContainer" />
+        app:layout_constraintTop_toBottomOf="@+id/videoViewContainer">
 
-</androidx.constraintlayout.motion.widget.MotionLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:nestedScrollingEnabled="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.bytepace.ipr.youtube.SingleViewTouchableMotionLayout>
