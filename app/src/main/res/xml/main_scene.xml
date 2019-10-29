@@ -23,6 +23,21 @@
                     app:customDimension="55dp" />
             </KeyAttribute>
 
+            <KeyAttribute
+                app:framePosition="100"
+                app:motionTarget="@id/backgroundDim">
+                <CustomAttribute
+                    app:attributeName="BackgroundColor"
+                    app:customColorValue="@color/semiTransparentBlack" />
+            </KeyAttribute>
+
+            <KeyAttribute
+                app:framePosition="0"
+                app:motionTarget="@id/backgroundDim">
+                <CustomAttribute
+                    app:attributeName="BackgroundColor"
+                    app:customColorValue="@android:color/transparent" />
+            </KeyAttribute>
         </KeyFrameSet>
     </Transition>
 

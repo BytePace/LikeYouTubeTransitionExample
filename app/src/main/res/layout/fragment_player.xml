@@ -5,7 +5,8 @@
     android:id="@+id/videoMotionLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/transparent">
+    android:background="@android:color/transparent"
+    app:layoutDescription="@xml/player_scene">
 
     <View
         android:id="@+id/viewBackground"
